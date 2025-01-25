@@ -2,8 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  distDir: 'out', 
-  /* other config options here */
+  distDir: 'out',
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: '/:path*'
+      }
+    ];
+  }
 };
 
 export default nextConfig;
